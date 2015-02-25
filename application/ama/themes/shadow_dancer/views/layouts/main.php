@@ -28,7 +28,7 @@
 
 <div class="container" id="page">
 	<div id="topnav">
-		<div class="topnav_text"><a href='#'>Home</a> | <a href='#'>My Account</a> | <a href='#'>Settings</a> | <a href='#'>Logout</a> </div>
+		<div class="topnav_text"><a href='#'>Home</a> | <a href='/site/'>My Account</a> | <a href='#'>Settings</a> | <a href='http://localhost:81/ama/index.php?r=site/login'>Login</a> </div>
 	</div>
 	<div id="header">
 		<div id="logo"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo.png"></img><?php //echo CHtml::encode(Yii::app()->name); ?></div>

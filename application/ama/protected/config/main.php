@@ -33,7 +33,7 @@ return array(
 
 	// application components
 	
-	'theme'=>'citylights',
+	'theme'=>'abound',
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
@@ -56,7 +56,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=amadb',
+			'connectionString' => 'mysql:host=localhost;dbname=ama',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
