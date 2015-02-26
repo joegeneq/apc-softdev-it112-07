@@ -5,8 +5,8 @@
  *
  * The followings are the available columns in table 'donation':
  * @property integer $id
- * @property integer $donation_type
- * @property integer $donation_status
+ * @property string $donation_type
+ * @property string $donation_status
  * @property string $donation_date
  */
 class Donation extends CActiveRecord
@@ -28,7 +28,7 @@ class Donation extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('donation_type, donation_status, donation_date', 'required'),
-			array('donation_type, donation_status', 'numerical', 'integerOnly'=>true),
+			array('donation_type, donation_status', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, donation_type, donation_status, donation_date', 'safe', 'on'=>'search'),
@@ -78,8 +78,8 @@ class Donation extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('donation_type',$this->donation_type);
-		$criteria->compare('donation_status',$this->donation_status);
+		$criteria->compare('donation_type',$this->donation_type,true);
+		$criteria->compare('donation_status',$this->donation_status,true);
 		$criteria->compare('donation_date',$this->donation_date,true);
 
 		return new CActiveDataProvider($this, array(

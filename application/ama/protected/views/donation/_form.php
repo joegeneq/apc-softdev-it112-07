@@ -21,13 +21,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'donation_type'); ?>
-		<?php echo $form->textField($model,'donation_type'); ?>
+		<?php echo $form->dropDownList($model,'donation_type',array('Donation Type'=>'Paypal','Cheque','Cash'),array());?>
 		<?php echo $form->error($model,'donation_type'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'donation_status'); ?>
-		<?php echo $form->textField($model,'donation_status'); ?>
+		<?php echo $form->textField($model,'donation_status',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'donation_status'); ?>
 	</div>
 

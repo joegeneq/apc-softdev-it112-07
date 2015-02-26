@@ -9,16 +9,16 @@
 			/*'type'=>'list',*/
 			'encodeLabel'=>false,
 			'items'=>array(
-				array('label'=>'<i class="icon icon-home"></i>  Dashboard <span class="label label-info pull-right">BETA</span>', 'url'=>array('/site/index'),'itemOptions'=>array('class'=>'')),
-				array('label'=>'<i class="icon icon-search"></i> About this theme <span class="label label-important pull-right">HOT</span>', 'url'=>'http://www.webapplicationthemes.com/abound-yii-framework-theme/'),
-				array('label'=>'<i class="icon icon-envelope"></i> Messages <span class="badge badge-success pull-right">12</span>', 'url'=>'#'),
+				array('label'=>'<i class="icon icon-home"></i>  Home', 'url'=>array('/site/index'),'itemOptions'=>array('class'=>'')),
+				//array('label'=>'<i class="icon icon-search"></i> About this theme <span class="label label-important pull-right">HOT</span>', 'url'=>'http://www.webapplicationthemes.com/abound-yii-framework-theme/'),
+				//array('label'=>'<i class="icon icon-envelope"></i> Messages <span class="badge badge-success pull-right">12</span>', 'url'=>'#'),
 				// Include the operations menu
 				array('label'=>'OPERATIONS','items'=>$this->menu),
 			),
 			));?>
 		</div>
         <br>
-        <table class="table table-striped table-bordered">
+        <!--<table class="table table-striped table-bordered">
           <tbody>
             <tr>
               <td width="50%">Bandwith Usage</td>
@@ -67,7 +67,7 @@
               <dd>$560,000</dd>
               
             </dl>
-      </div>
+      </div>-->
 		
     </div><!--/span-->
     <div class="span9">

@@ -18,12 +18,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'donation_type'); ?>
-		<?php echo $form->textField($model,'donation_type'); ?>
+		<?php echo $form->textField($model,'donation_type',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'donation_status'); ?>
-		<?php echo $form->textField($model,'donation_status'); ?>
+		<?php echo $form->textField($model,'donation_status',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">
