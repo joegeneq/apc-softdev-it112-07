@@ -32,7 +32,7 @@ class Myaddress extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
+            [['id', 'firstname', 'middlename', 'lastname', 'gender'], 'required'],
             [['id'], 'integer'],
             [['created_at'], 'safe'],
             [['firstname', 'middlename', 'lastname'], 'string', 'max' => 30],
