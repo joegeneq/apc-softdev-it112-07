@@ -12,10 +12,10 @@
                     <div class="span6">
                         <h3>Address</h3>
                         <p>
-                        20 Glenville Road<br />
-                        Hatfeild<br />
-                        Harare<br />
-                        ZIMBABWE
+                        Unit C, 2/F Anna 8 Building,<br />
+                        86 Bayani Road, Fort Bonifacio, Taguig City<br />
+                        or 2/F Guadalupe Commercial Complex, <br />
+                        Guadalupe Nueva, Makati City
                         </p>
                     </div>
                     <div class="span6">
