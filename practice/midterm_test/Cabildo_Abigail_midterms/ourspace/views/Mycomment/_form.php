@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\myaddress;
+use yii\helpers\ArrayHelper;
+use yii\widgets\DetailsView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Mycomment */
@@ -11,8 +14,16 @@ use yii\widgets\ActiveForm;
 <div class="mycomment-form">
 
     <?php $form = ActiveForm::begin(); ?>
+	
+	<?php
+		$myaddress = myaddress::find()->all();
+		$listData=ArrayHelper::map($myaddress,'id', 'lastname');
+		echo $form->field($model, 'myaddress_id')->dropDownList(
+								$listData,
+								['prompt'=>'Select last name...'])
+								?>
 
-    <?= $form->field($model, 'myaddress_id')->textInput() ?>
+    
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => 255]) ?>
 
