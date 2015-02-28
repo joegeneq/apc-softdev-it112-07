@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 02:14 AM
+-- Generation Time: Feb 28, 2015 at 06:41 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -28,11 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `myaddress` (
   `id` int(11) NOT NULL,
-  `firstname` varchar(30) DEFAULT NULL,
-  `middlename` varchar(30) DEFAULT NULL,
-  `lastname` varchar(30) DEFAULT NULL,
-  `gender` varchar(1) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `middlename` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `home_address` varchar(50) DEFAULT NULL,
+  `landline` varchar(20) DEFAULT NULL,
+  `cellphone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,14 +46,14 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
 --
 
 CREATE TABLE IF NOT EXISTS `mycomment` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `author` varchar(255) DEFAULT NULL,
-  `body` longtext,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `myaddress_id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `myaddress_id` int(11) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `body` longtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `mycomment_ibfk_1` (`myaddress_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
