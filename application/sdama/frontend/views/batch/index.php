@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'batch_code',
-            'batch_year',
+            'batch_date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

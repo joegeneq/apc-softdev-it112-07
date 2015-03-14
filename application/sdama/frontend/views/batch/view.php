@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'batch_code',
-            'batch_year',
+            'batch_date',
         ],
     ]) ?>
 

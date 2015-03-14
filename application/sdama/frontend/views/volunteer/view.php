@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'volunteer_address',
             'volunteer_contact_num',
             'volunteer_start_date',
+            'batch_id',
         ],
     ]) ?>
 

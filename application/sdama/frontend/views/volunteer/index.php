@@ -41,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'volunteer_address',
             // 'volunteer_contact_num',
             // 'volunteer_start_date',
-
+            // 'batch_id',
+[
+'attribute' => 'batch_id',
+'label' => 'Batch',
+'value' => 'batch.batch_code',
+'filter' => yii\helpers\ArrayHelper::map(frontend\models\Batch::find()->all(), 'id', 'batch_code')
+],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
