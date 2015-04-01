@@ -13,10 +13,7 @@ $this->title = 'AMA Foundation';
             <div class="col-lg-4">
                
 				<h2>Who we are?</h2>
-				<?php 
-				$image_url='http://s9.postimg.org/hg3k985rz/image1.jpg';
-				?>
-				<center><img src="<?php echo $image_url;?>" width="350" height="320"><br><br></center>
+				<center><img src="images/image1.jpg" width="350" height="320"><br><br></center>
                 <p>The Associate Missionaries of the Assumption is a community of young volunteers who are committed to transforming society through joyful service deeply rooted in faith and prayer.</p>
 				<!--<p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>-->
             </div>
@@ -30,10 +27,7 @@ $this->title = 'AMA Foundation';
 			<div class="col-lg-4">
 				
                 <h2>What we do?</h2>
-				<?php 
-				$image_url='http://s29.postimg.org/5pmnaab5j/image3.jpg';
-				?>
-				<center><img src="<?php echo $image_url;?>" width="350" height="320"><br><br></center>
+				<center><img src="images/image3.jpg" width="350" height="320"><br><br></center>
                 <p>The alumni community continues to be a support group, has provided human & material resources to the program. They oversee implementation & sustainability of the organization.</p>
 
                 <!--<p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>-->
@@ -42,5 +36,5 @@ $this->title = 'AMA Foundation';
 
     </div>
 </div>
-<center><a href="http://localhost:81/sdama1/backend/web/index.php?r=site%2Flogin"><div class="btn">LOGIN</div></a>
+<center><a href="http://localhost/sdama/backend/web/index.php?r=site%2Flogin"><div class="btn">LOGIN</div></a>
 <br><br>
