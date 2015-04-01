@@ -1,36 +1,52 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
 html,
 body {
+	font-family: 'Montserrat', sans-serif;
     height: 100%;
-	background-image:url(../images/backgrounds/background4.png);
+	/*background-color: white;*/
+	background-image:url(../images/ble.jpg);
+	background-repeat: repeat;
+}
+
+.h1 {
+	font-size: 20px;
+	color: white; 
 }
 
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+    margin: 0 0px 0px;
+    padding: 0 0 0px;
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+	padding-top: 0px;
 }
 
 .footer {
     height: 60px;
-    background-color: black;
-    border-top: 1px solid #ddd;
+    background-color: white;
+    border-top: 5px solid #1E90FF;
     padding-top: 20px;
-	color:white;
 }
 
 .jumbotron {
     text-align: center;
-    background-color: black;
+	background-color: white;
+	opacity: 0.8;
+}
+
+.h4 {
+	color: white; 
 }
 
 .jumbotron .btn {
-    font-size: 20px;
+    font-size: 18px;
     padding: 14px 24px;
+	background-color: maroon;
+	color: white;
 }
 
 .not-set {

@@ -18,8 +18,7 @@ class MissionSearch extends Mission
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_fname', 'mission_contact_person_lname', 'mission_contact_num', 'mission_email_address'], 'safe'],
+            [['id', 'mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_lname', 'mission_contact_person_fname', 'mission_contact_num', 'mission_email_address'], 'integer'],
         ];
     }
 
@@ -57,16 +56,15 @@ class MissionSearch extends Mission
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'mission_name' => $this->mission_name,
+            'mission_desc' => $this->mission_desc,
+            'mission_num_of_volunteer_needed' => $this->mission_num_of_volunteer_needed,
+            'mission_location' => $this->mission_location,
+            'mission_contact_person_lname' => $this->mission_contact_person_lname,
+            'mission_contact_person_fname' => $this->mission_contact_person_fname,
+            'mission_contact_num' => $this->mission_contact_num,
+            'mission_email_address' => $this->mission_email_address,
         ]);
-
-        $query->andFilterWhere(['like', 'mission_name', $this->mission_name])
-            ->andFilterWhere(['like', 'mission_desc', $this->mission_desc])
-            ->andFilterWhere(['like', 'mission_num_of_volunteer_needed', $this->mission_num_of_volunteer_needed])
-            ->andFilterWhere(['like', 'mission_location', $this->mission_location])
-            ->andFilterWhere(['like', 'mission_contact_person_fname', $this->mission_contact_person_fname])
-            ->andFilterWhere(['like', 'mission_contact_person_lname', $this->mission_contact_person_lname])
-            ->andFilterWhere(['like', 'mission_contact_num', $this->mission_contact_num])
-            ->andFilterWhere(['like', 'mission_email_address', $this->mission_email_address]);
 
         return $dataProvider;
     }

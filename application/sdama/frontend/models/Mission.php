@@ -8,14 +8,14 @@ use Yii;
  * This is the model class for table "mission".
  *
  * @property integer $id
- * @property string $mission_name
- * @property string $mission_desc
- * @property string $mission_num_of_volunteer_needed
- * @property string $mission_location
- * @property string $mission_contact_person_fname
- * @property string $mission_contact_person_lname
- * @property string $mission_contact_num
- * @property string $mission_email_address
+ * @property integer $mission_name
+ * @property integer $mission_desc
+ * @property integer $mission_num_of_volunteer_needed
+ * @property integer $mission_location
+ * @property integer $mission_contact_person_lname
+ * @property integer $mission_contact_person_fname
+ * @property integer $mission_contact_num
+ * @property integer $mission_email_address
  */
 class Mission extends \yii\db\ActiveRecord
 {
@@ -33,8 +33,8 @@ class Mission extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_fname', 'mission_contact_person_lname', 'mission_contact_num', 'mission_email_address'], 'required'],
-            [['mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_fname', 'mission_contact_person_lname', 'mission_contact_num', 'mission_email_address'], 'string', 'max' => 45]
+            [['id', 'mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_lname', 'mission_contact_person_fname', 'mission_contact_num', 'mission_email_address'], 'required'],
+            [['id', 'mission_name', 'mission_desc', 'mission_num_of_volunteer_needed', 'mission_location', 'mission_contact_person_lname', 'mission_contact_person_fname', 'mission_contact_num', 'mission_email_address'], 'integer']
         ];
     }
 
@@ -49,8 +49,8 @@ class Mission extends \yii\db\ActiveRecord
             'mission_desc' => 'Mission Desc',
             'mission_num_of_volunteer_needed' => 'Mission Num Of Volunteer Needed',
             'mission_location' => 'Mission Location',
-            'mission_contact_person_fname' => 'Mission Contact Person Fname',
             'mission_contact_person_lname' => 'Mission Contact Person Lname',
+            'mission_contact_person_fname' => 'Mission Contact Person Fname',
             'mission_contact_num' => 'Mission Contact Num',
             'mission_email_address' => 'Mission Email Address',
         ];

@@ -12,21 +12,23 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'mission_name')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'id')->textInput() ?>
 
-    <?= $form->field($model, 'mission_desc')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_name')->textInput() ?>
 
-    <?= $form->field($model, 'mission_num_of_volunteer_needed')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_desc')->textInput() ?>
 
-    <?= $form->field($model, 'mission_location')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_num_of_volunteer_needed')->textInput() ?>
 
-    <?= $form->field($model, 'mission_contact_person_fname')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_location')->textInput() ?>
 
-    <?= $form->field($model, 'mission_contact_person_lname')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_contact_person_lname')->textInput() ?>
 
-    <?= $form->field($model, 'mission_contact_num')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_contact_person_fname')->textInput() ?>
 
-    <?= $form->field($model, 'mission_email_address')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'mission_contact_num')->textInput() ?>
+
+    <?= $form->field($model, 'mission_email_address')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

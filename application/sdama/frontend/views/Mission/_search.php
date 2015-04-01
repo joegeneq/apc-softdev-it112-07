@@ -25,9 +25,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'mission_location') ?>
 
-    <?php // echo $form->field($model, 'mission_contact_person_fname') ?>
-
     <?php // echo $form->field($model, 'mission_contact_person_lname') ?>
+
+    <?php // echo $form->field($model, 'mission_contact_person_fname') ?>
 
     <?php // echo $form->field($model, 'mission_contact_num') ?>
 
