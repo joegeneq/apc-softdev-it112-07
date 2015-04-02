@@ -17,17 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'mission_name') ?>
-
-    <?= $form->field($model, 'mission_desc') ?>
-
-    <?= $form->field($model, 'mission_num_of_volunteer_needed') ?>
+    <?= $form->field($model, 'mission_num_of_volunteer') ?>
 
     <?= $form->field($model, 'mission_location') ?>
 
-    <?php // echo $form->field($model, 'mission_contact_person_fname') ?>
+    <?= $form->field($model, 'mission_contact_person_lname') ?>
 
-    <?php // echo $form->field($model, 'mission_contact_person_lname') ?>
+    <?= $form->field($model, 'mission_contact_person_fname') ?>
 
     <?php // echo $form->field($model, 'mission_contact_num') ?>
 
