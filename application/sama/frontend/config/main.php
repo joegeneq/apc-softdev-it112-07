@@ -15,8 +15,8 @@ return [
 		'view'=> [
 		'theme'=> [
 		'pathMap'=> [ 
-			'@app/views'=> '@webroot/themes/houses-on-water'],
-		'baseUrl'=> '@web/themes/houses-on-water',
+			'@app/views'=> '@webroot/themes/orange-strings'],
+		'baseUrl'=> '@web/themes/orange-strings',
         ],
         ],
         'user' => [
