@@ -8,28 +8,36 @@ use Yii;
  * This is the model class for table "alumni".
  *
  * @property integer $id
- * @property string $alumni_code
- * @property string $alumni_fname
  * @property string $alumni_lname
+ * @property string $alumni_fname
  * @property string $alumni_mname
- * @property string $alumn_bdate
- * @property string $alumni_age
- * @property string $alumni_school_graduated
- * @property string $alumni_year_graduated
- * @property string $alumni_address
- * @property string $alumni_contact_num
- * @property string $alumni_reg_date
+ * @property string $alumni_gender
+ * @property string $alumni_birthdate
+ * @property string $alumni_nationality
  * @property string $alumni_occupation
- * @property string $alumni_company_name
- * @property string $alumni_company_contact_num
- * @property string $alumni_company_address
- * @property integer $admin_id
- * @property integer $volunteer_id
- *
- * @property Admin $admin
- * @property Volunteer $volunteer
+ * @property string $alumni_marital_stat
+ * @property string $alumni_address
+ * @property string $alumni_mobile
+ * @property string $alumni_landline
+ * @property string $alumni_email
+ * @property string $alumni_school_graduated_from
+ * @property string $alumni_school_year_graduated
+ * @property string $alumni_school_address
+ * @property integer $alumni_school_contact_num
+ * @property resource $alumni_photo
+ * @property string $alumni_father_name
+ * @property string $alumni_father_address
+ * @property string $alumni_father_occupation
+ * @property integer $alumni_father_contact_num
+ * @property string $alumni_mother_name
+ * @property string $alumni_mother_address
+ * @property string $alumni_mother_occupation
+ * @property integer $alumni_mother_contact_num
+ * @property integer $alumni_num_siblings
+ * @property string $alumni_spouse
+ * @property integer $alumni_num_children
  */
-class Alumni extends \yii\db\ActiveRecord
+class alumni extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -45,9 +53,14 @@ class Alumni extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alumni_code', 'alumni_fname', 'alumni_lname', 'alumni_mname', 'alumn_bdate', 'alumni_age', 'alumni_school_graduated', 'alumni_year_graduated', 'alumni_address', 'alumni_contact_num', 'alumni_reg_date', 'alumni_occupation', 'alumni_company_name', 'alumni_company_contact_num', 'alumni_company_address', 'admin_id'], 'required'],
-            [['admin_id', 'volunteer_id'], 'integer'],
-            [['alumni_code', 'alumni_fname', 'alumni_lname', 'alumni_mname', 'alumn_bdate', 'alumni_age', 'alumni_school_graduated', 'alumni_year_graduated', 'alumni_address', 'alumni_contact_num', 'alumni_reg_date', 'alumni_occupation', 'alumni_company_name', 'alumni_company_contact_num', 'alumni_company_address'], 'string', 'max' => 45]
+            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_gender', 'alumni_birthdate', 'alumni_nationality', 'alumni_occupation', 'alumni_marital_stat', 'alumni_address', 'alumni_mobile', 'alumni_landline', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_graduated', 'alumni_school_address', 'alumni_school_contact_num', 'alumni_photo', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_father_contact_num', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_mother_contact_num', 'alumni_num_siblings', 'alumni_spouse', 'alumni_num_children'], 'required'],
+            [['alumni_birthdate'], 'safe'],
+            [['alumni_school_contact_num', 'alumni_father_contact_num', 'alumni_mother_contact_num', 'alumni_num_siblings', 'alumni_num_children'], 'integer'],
+            [['alumni_photo'], 'string'],
+            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_nationality', 'alumni_occupation', 'alumni_address', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_graduated', 'alumni_school_address', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_spouse'], 'string', 'max' => 45],
+            [['alumni_gender'], 'string', 'max' => 6],
+            [['alumni_marital_stat', 'alumni_landline'], 'string', 'max' => 10],
+            [['alumni_mobile'], 'string', 'max' => 15]
         ];
     }
 
@@ -58,39 +71,34 @@ class Alumni extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'alumni_code' => 'Alumni Code',
-            'alumni_fname' => 'Alumni Fname',
-            'alumni_lname' => 'Alumni Lname',
-            'alumni_mname' => 'Alumni Mname',
-            'alumn_bdate' => 'Alumn Bdate',
-            'alumni_age' => 'Alumni Age',
-            'alumni_school_graduated' => 'Alumni School Graduated',
-            'alumni_year_graduated' => 'Alumni Year Graduated',
-            'alumni_address' => 'Alumni Address',
-            'alumni_contact_num' => 'Alumni Contact Num',
-            'alumni_reg_date' => 'Alumni Reg Date',
-            'alumni_occupation' => 'Alumni Occupation',
-            'alumni_company_name' => 'Alumni Company Name',
-            'alumni_company_contact_num' => 'Alumni Company Contact Num',
-            'alumni_company_address' => 'Alumni Company Address',
-            'admin_id' => 'Admin ID',
-            'volunteer_id' => 'Volunteer ID',
+            'alumni_lname' => 'Last Name',
+            'alumni_fname' => 'First Name',
+            'alumni_mname' => 'Middle Name',
+            'alumni_gender' => 'Gender',
+            'alumni_birthdate' => 'Birthday',
+            'alumni_nationality' => 'Nationality',
+            'alumni_occupation' => 'Occupation',
+            'alumni_marital_stat' => 'Marital Status',
+            'alumni_address' => 'Home Address',
+            'alumni_mobile' => 'Mobile Number',
+            'alumni_landline' => 'Landline Number',
+            'alumni_email' => 'Email Address',
+            'alumni_school_graduated_from' => 'School Graduated From',
+            'alumni_school_year_graduated' => 'School Year Graduated',
+            'alumni_school_address' => 'School Address',
+            'alumni_school_contact_num' => 'School Contact Number',
+            'alumni_photo' => 'Photo',
+            'alumni_father_name' => 'Name of Father',
+            'alumni_father_address' => 'Address of Father',
+            'alumni_father_occupation' => 'Occupation of Father',
+            'alumni_father_contact_num' => 'Contact Number of Father',
+            'alumni_mother_name' => 'Name of Mother',
+            'alumni_mother_address' => 'Address of Mother',
+            'alumni_mother_occupation' => 'Occupation of Mother',
+            'alumni_mother_contact_num' => 'Contact Number of Mother',
+            'alumni_num_siblings' => 'Number of Siblings',
+            'alumni_spouse' => 'Spouse',
+            'alumni_num_children' => 'Number of Children',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAdmin()
-    {
-        return $this->hasOne(Admin::className(), ['id' => 'admin_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getVolunteer()
-    {
-        return $this->hasOne(Volunteer::className(), ['id' => 'volunteer_id']);
     }
 }

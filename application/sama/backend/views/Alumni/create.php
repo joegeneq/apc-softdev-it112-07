@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Alumni */
+/* @var $model backend\models\alumni */
 
 $this->title = 'Create Alumni';
 $this->params['breadcrumbs'][] = ['label' => 'Alumnis', 'url' => ['index']];

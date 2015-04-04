@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2015 at 01:38 AM
+-- Generation Time: Apr 04, 2015 at 09:51 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -23,45 +23,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `admin_username` varchar(45) NOT NULL,
-  `admin_password` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `alumni`
 --
 
 CREATE TABLE IF NOT EXISTS `alumni` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `alumni_code` varchar(45) NOT NULL,
-  `alumni_fname` varchar(45) NOT NULL,
   `alumni_lname` varchar(45) NOT NULL,
+  `alumni_fname` varchar(45) NOT NULL,
   `alumni_mname` varchar(45) NOT NULL,
-  `alumn_bdate` varchar(45) NOT NULL,
-  `alumni_age` varchar(45) NOT NULL,
-  `alumni_school_graduated` varchar(45) NOT NULL,
-  `alumni_year_graduated` varchar(45) NOT NULL,
-  `alumni_address` varchar(45) NOT NULL,
-  `alumni_contact_num` varchar(45) NOT NULL,
-  `alumni_reg_date` varchar(45) NOT NULL,
+  `alumni_gender` char(6) NOT NULL,
+  `alumni_birthdate` date NOT NULL,
+  `alumni_nationality` varchar(45) NOT NULL,
   `alumni_occupation` varchar(45) NOT NULL,
-  `alumni_company_name` varchar(45) NOT NULL,
-  `alumni_company_contact_num` varchar(45) NOT NULL,
-  `alumni_company_address` varchar(45) NOT NULL,
-  `admin_id` int(11) NOT NULL,
-  `volunteer_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_alumni_admin1_idx` (`admin_id`),
-  KEY `fk_alumni_volunteer1_idx` (`volunteer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `alumni_marital_stat` char(10) NOT NULL,
+  `alumni_address` varchar(45) NOT NULL,
+  `alumni_mobile` char(15) NOT NULL,
+  `alumni_landline` char(10) NOT NULL,
+  `alumni_email` varchar(45) NOT NULL,
+  `alumni_school_graduated_from` varchar(45) NOT NULL,
+  `alumni_school_year_graduated` varchar(45) NOT NULL,
+  `alumni_school_address` varchar(45) NOT NULL,
+  `alumni_school_contact_num` int(11) NOT NULL,
+  `alumni_photo` blob NOT NULL,
+  `alumni_father_name` varchar(45) NOT NULL,
+  `alumni_father_address` varchar(45) NOT NULL,
+  `alumni_father_occupation` varchar(45) NOT NULL,
+  `alumni_father_contact_num` int(11) NOT NULL,
+  `alumni_mother_name` varchar(45) NOT NULL,
+  `alumni_mother_address` varchar(45) NOT NULL,
+  `alumni_mother_occupation` varchar(45) NOT NULL,
+  `alumni_mother_contact_num` int(11) NOT NULL,
+  `alumni_num_siblings` int(11) NOT NULL,
+  `alumni_spouse` varchar(45) NOT NULL,
+  `alumni_num_children` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `alumni`
+--
+
+INSERT INTO `alumni` (`id`, `alumni_lname`, `alumni_fname`, `alumni_mname`, `alumni_gender`, `alumni_birthdate`, `alumni_nationality`, `alumni_occupation`, `alumni_marital_stat`, `alumni_address`, `alumni_mobile`, `alumni_landline`, `alumni_email`, `alumni_school_graduated_from`, `alumni_school_year_graduated`, `alumni_school_address`, `alumni_school_contact_num`, `alumni_photo`, `alumni_father_name`, `alumni_father_address`, `alumni_father_occupation`, `alumni_father_contact_num`, `alumni_mother_name`, `alumni_mother_address`, `alumni_mother_occupation`, `alumni_mother_contact_num`, `alumni_num_siblings`, `alumni_spouse`, `alumni_num_children`) VALUES
+(1, 'Arendain-Elesis', 'Cecilia', 'ASdg', 'F', '0000-00-00', '', '', 'Married', 'Zone III, Bo. Obrero 5000 Iloilo City', '09178344158', '8249614', 'babibatacan@yahoo.com', '', '', '', 0, 0x6a616e7361, '', '', '', 0, '', '', '', 0, 0, '', 0),
+(2, 'Arendain-Elesis', 'Cecilia', 'ASdg', 'F', '0000-00-00', '', '', 'Married', 'Zone III, Bo. Obrero 5000 Iloilo City', '09178344158', '8249614', 'babibatacan@yahoo.com', '', '', '', 0, 0x6a646b733b7361, '', '', '', 0, '', '', '', 0, 0, '', 0),
+(3, 'demo', 'demo', 'demo', 'f', '0000-00-00', '', '', 'demo', 'demo', '893084935', '94305436', 'dkslfjd@gmail.com', '', '', '', 0, 0x6473646664, '', '', '', 0, '', '', '', 0, 0, '', 0),
+(4, 'demo', 'demo', 'demo', 'f', '0000-00-00', '', '', 'demo', 'demo', '893084935', '94305436', 'dkslfjd@gmail.com', '', '', '', 0, 0x6473646664, '', '', '', 0, '', '', '', 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -71,10 +77,17 @@ CREATE TABLE IF NOT EXISTS `alumni` (
 
 CREATE TABLE IF NOT EXISTS `batch` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `batch_code` varchar(45) NOT NULL,
-  `batch_date` date NOT NULL,
+  `batch_code` int(11) NOT NULL,
+  `batch_year` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `batch`
+--
+
+INSERT INTO `batch` (`id`, `batch_code`, `batch_year`) VALUES
+(1, 1, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -85,30 +98,8 @@ CREATE TABLE IF NOT EXISTS `batch` (
 CREATE TABLE IF NOT EXISTS `logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `logs_date` date NOT NULL,
-  `admin_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_logs_admin1_idx` (`admin_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `migration`
---
-
-CREATE TABLE IF NOT EXISTS `migration` (
-  `version` varchar(180) NOT NULL,
-  `apply_time` int(11) DEFAULT NULL,
-  PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `migration`
---
-
-INSERT INTO `migration` (`version`, `apply_time`) VALUES
-('m000000_000000_base', 1425528621),
-('m130524_201442_init', 1425528627);
 
 -- --------------------------------------------------------
 
@@ -118,16 +109,21 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 
 CREATE TABLE IF NOT EXISTS `mission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mission_name` varchar(45) NOT NULL,
-  `mission_desc` varchar(45) NOT NULL,
-  `mission_num_of_volunteer_needed` varchar(45) NOT NULL,
+  `mission_num_of_volunteer` varchar(45) NOT NULL,
   `mission_location` varchar(45) NOT NULL,
-  `mission_contact_person_fname` varchar(45) NOT NULL,
   `mission_contact_person_lname` varchar(45) NOT NULL,
-  `mission_contact_num` varchar(45) NOT NULL,
-  `mission_email_address` varchar(45) NOT NULL,
+  `mission_contact_person_fname` varchar(45) NOT NULL,
+  `mission_contact_num` char(12) NOT NULL,
+  `mission_email_address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `mission`
+--
+
+INSERT INTO `mission` (`id`, `mission_num_of_volunteer`, `mission_location`, `mission_contact_person_lname`, `mission_contact_person_fname`, `mission_contact_num`, `mission_email_address`) VALUES
+(1, '10', 'Baguio', 'Cabildo', 'Abigail', '09876543243', 'abigailcabildo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -146,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `user`
@@ -154,76 +150,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'abbycabildo09', 'tgMvkVQMeWOYRgTZLnpdMoJJ8Ay-Yu1B', '$2y$13$E3aVeQAyplSte3Bwf.X42.yl/hxmMbHIJmPbjv/dlceLha6Eh5Mlm', NULL, 'abbycabildo09@gmail.com', 10, 1425528693, 1425528693),
-(2, 'kyralacuata', 'OkqUF4Fr4uWeYg6iQ8BtpteTheER0QXs', '$2y$13$KYtwDL15T5Q.A5UGVCw3meUcfoi8dGWXNvx/qIutY4QSMMV8zfzLO', NULL, 'kyralacuata@gmail.com', 10, 1425530231, 1425530231);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `volunteer`
---
-
-CREATE TABLE IF NOT EXISTS `volunteer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `volunteer_status` varchar(45) NOT NULL,
-  `volunteer_code` varchar(45) NOT NULL,
-  `volunteer_fname` varchar(45) NOT NULL,
-  `volunteer_lname` varchar(45) NOT NULL,
-  `volunteer_mname` varchar(45) NOT NULL,
-  `volunteer_bdate` varchar(45) NOT NULL,
-  `volunteer_age` varchar(45) NOT NULL,
-  `volunteer_school_graduated` varchar(45) NOT NULL,
-  `volunteer_year_graduated` varchar(45) NOT NULL,
-  `volunteer_address` varchar(45) NOT NULL,
-  `volunteer_contact_num` varchar(45) NOT NULL,
-  `volunteer_start_date` date NOT NULL,
-  `batch_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_volunteer_batch1_idx` (`batch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `volunteer_has_mission`
---
-
-CREATE TABLE IF NOT EXISTS `volunteer_has_mission` (
-  `volunteer_id` int(11) NOT NULL,
-  `mission_id` int(11) NOT NULL,
-  PRIMARY KEY (`volunteer_id`,`mission_id`),
-  KEY `fk_volunteer_has_mission_mission1_idx` (`mission_id`),
-  KEY `fk_volunteer_has_mission_volunteer1_idx` (`volunteer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `alumni`
---
-ALTER TABLE `alumni`
-  ADD CONSTRAINT `fk_alumni_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_alumni_volunteer1` FOREIGN KEY (`volunteer_id`) REFERENCES `volunteer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `logs`
---
-ALTER TABLE `logs`
-  ADD CONSTRAINT `fk_logs_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `volunteer`
---
-ALTER TABLE `volunteer`
-  ADD CONSTRAINT `fk_volunteer_batch1` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `volunteer_has_mission`
---
-ALTER TABLE `volunteer_has_mission`
-  ADD CONSTRAINT `fk_volunteer_has_mission_mission1` FOREIGN KEY (`mission_id`) REFERENCES `mission` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_volunteer_has_mission_volunteer1` FOREIGN KEY (`volunteer_id`) REFERENCES `volunteer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+(2, 'kyralacuata', 'OkqUF4Fr4uWeYg6iQ8BtpteTheER0QXs', '$2y$13$KYtwDL15T5Q.A5UGVCw3meUcfoi8dGWXNvx/qIutY4QSMMV8zfzLO', NULL, 'kyralacuata@gmail.com', 10, 1425530231, 1425530231),
+(3, 'gamay', '_JAYZj1AKKbsyqNDVD9R2aY548lDwqfc', '$2y$13$TZKUJQT0ujIzyyC9FUR3wuIPLVWZgkQO1BTL5CKpirRJaJaD15Mdm', NULL, 'gamay@gmail.com', 10, 1426229090, 1426229090),
+(4, 'admin', 'WWsoSAoGRmGtIZdo1QJabRbnitqP3DIj', '$2y$13$Y77wzHKkIwYZN5XOPX.2tufYpyCA8VCnWJOnpTgE6bds1DsO5I.Hm', NULL, 'administrator@gmail.com', 10, 1427504044, 1427504044);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

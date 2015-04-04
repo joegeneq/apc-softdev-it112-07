@@ -2,15 +2,15 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\alumni */
 
-$this->title = 'Update Alumni: ' . ' ' . $model->id;
+/* @var $this yii\web\View */
+/* @var $model backend\models\Alumni */
+
+$this->title = 'Create Alumni';
 $this->params['breadcrumbs'][] = ['label' => 'Alumnis', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="alumni-update">
+<div class="alumni-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

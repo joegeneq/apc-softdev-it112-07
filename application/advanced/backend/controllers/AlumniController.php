@@ -3,14 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\alumni;
-use backend\models\alumniSearch;
+use backend\models\Alumni;
+use backend\models\AlumniSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AlumniController implements the CRUD actions for alumni model.
+ * AlumniController implements the CRUD actions for Alumni model.
  */
 class AlumniController extends Controller
 {
@@ -27,12 +27,12 @@ class AlumniController extends Controller
     }
 
     /**
-     * Lists all alumni models.
+     * Lists all Alumni models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new alumniSearch();
+        $searchModel = new AlumniSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class AlumniController extends Controller
     }
 
     /**
-     * Displays a single alumni model.
+     * Displays a single Alumni model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class AlumniController extends Controller
     }
 
     /**
-     * Creates a new alumni model.
+     * Creates a new Alumni model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new alumni();
+        $model = new Alumni();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class AlumniController extends Controller
     }
 
     /**
-     * Updates an existing alumni model.
+     * Updates an existing Alumni model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class AlumniController extends Controller
     }
 
     /**
-     * Deletes an existing alumni model.
+     * Deletes an existing Alumni model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class AlumniController extends Controller
     }
 
     /**
-     * Finds the alumni model based on its primary key value.
+     * Finds the Alumni model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return alumni the loaded model
+     * @return Alumni the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = alumni::findOne($id)) !== null) {
+        if (($model = Alumni::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
