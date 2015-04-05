@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2015 at 09:51 AM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Generation Time: Apr 05, 2015 at 08:24 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `alumni` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `alumni_lname` varchar(45) NOT NULL,
   `alumni_fname` varchar(45) NOT NULL,
   `alumni_mname` varchar(45) NOT NULL,
@@ -55,9 +55,8 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `alumni_mother_contact_num` int(11) NOT NULL,
   `alumni_num_siblings` int(11) NOT NULL,
   `alumni_spouse` varchar(45) NOT NULL,
-  `alumni_num_children` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `alumni_num_children` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `alumni`
@@ -76,11 +75,10 @@ INSERT INTO `alumni` (`id`, `alumni_lname`, `alumni_fname`, `alumni_mname`, `alu
 --
 
 CREATE TABLE IF NOT EXISTS `batch` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `batch_code` int(11) NOT NULL,
-  `batch_year` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `batch_year` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `batch`
@@ -92,14 +90,33 @@ INSERT INTO `batch` (`id`, `batch_code`, `batch_year`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `subject` varchar(45) NOT NULL,
+  `body` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`name`, `email`, `subject`, `body`) VALUES
+('kyra', 'kyra@gmail', 'kyra', 'kyra hi');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `logs`
 --
 
 CREATE TABLE IF NOT EXISTS `logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `logs_date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+`id` int(11) NOT NULL,
+  `logs_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -108,15 +125,14 @@ CREATE TABLE IF NOT EXISTS `logs` (
 --
 
 CREATE TABLE IF NOT EXISTS `mission` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `mission_num_of_volunteer` varchar(45) NOT NULL,
   `mission_location` varchar(45) NOT NULL,
   `mission_contact_person_lname` varchar(45) NOT NULL,
   `mission_contact_person_fname` varchar(45) NOT NULL,
   `mission_contact_num` char(12) NOT NULL,
-  `mission_email_address` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `mission_email_address` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mission`
@@ -132,7 +148,7 @@ INSERT INTO `mission` (`id`, `mission_num_of_volunteer`, `mission_location`, `mi
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -140,9 +156,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  `updated_at` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -154,6 +169,75 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (3, 'gamay', '_JAYZj1AKKbsyqNDVD9R2aY548lDwqfc', '$2y$13$TZKUJQT0ujIzyyC9FUR3wuIPLVWZgkQO1BTL5CKpirRJaJaD15Mdm', NULL, 'gamay@gmail.com', 10, 1426229090, 1426229090),
 (4, 'admin', 'WWsoSAoGRmGtIZdo1QJabRbnitqP3DIj', '$2y$13$Y77wzHKkIwYZN5XOPX.2tufYpyCA8VCnWJOnpTgE6bds1DsO5I.Hm', NULL, 'administrator@gmail.com', 10, 1427504044, 1427504044);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `alumni`
+--
+ALTER TABLE `alumni`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `batch`
+--
+ALTER TABLE `batch`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+ ADD PRIMARY KEY (`name`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mission`
+--
+ALTER TABLE `mission`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `alumni`
+--
+ALTER TABLE `alumni`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `batch`
+--
+ALTER TABLE `batch`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `mission`
+--
+ALTER TABLE `mission`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
