@@ -18,8 +18,8 @@ class alumniSearch extends alumni
     public function rules()
     {
         return [
-            [['id', 'alumni_school_contact_num', 'alumni_father_contact_num', 'alumni_mother_contact_num', 'alumni_num_siblings', 'alumni_num_children'], 'integer'],
-            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_gender', 'alumni_birthdate', 'alumni_nationality', 'alumni_occupation', 'alumni_marital_stat', 'alumni_address', 'alumni_mobile', 'alumni_landline', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_graduated', 'alumni_school_address', 'alumni_photo', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_spouse'], 'safe'],
+            [['id', 'alumni_school_contact_num', 'alumni_num_siblings', 'alumni_num_children'], 'integer'],
+            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_gender', 'alumni_birthdate', 'alumni_nationality', 'alumni_occupation', 'alumni_marital_stat', 'alumni_address', 'alumni_mobile', 'alumni_landline', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_grad', 'alumni_school_address', 'alumni_photo', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_father_contact_num', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_mother_contact_num', 'alumni_spouse'], 'safe'],
         ];
     }
 
@@ -58,9 +58,8 @@ class alumniSearch extends alumni
         $query->andFilterWhere([
             'id' => $this->id,
             'alumni_birthdate' => $this->alumni_birthdate,
+            'alumni_school_year_grad' => $this->alumni_school_year_grad,
             'alumni_school_contact_num' => $this->alumni_school_contact_num,
-            'alumni_father_contact_num' => $this->alumni_father_contact_num,
-            'alumni_mother_contact_num' => $this->alumni_mother_contact_num,
             'alumni_num_siblings' => $this->alumni_num_siblings,
             'alumni_num_children' => $this->alumni_num_children,
         ]);
@@ -77,15 +76,16 @@ class alumniSearch extends alumni
             ->andFilterWhere(['like', 'alumni_landline', $this->alumni_landline])
             ->andFilterWhere(['like', 'alumni_email', $this->alumni_email])
             ->andFilterWhere(['like', 'alumni_school_graduated_from', $this->alumni_school_graduated_from])
-            ->andFilterWhere(['like', 'alumni_school_year_graduated', $this->alumni_school_year_graduated])
             ->andFilterWhere(['like', 'alumni_school_address', $this->alumni_school_address])
             ->andFilterWhere(['like', 'alumni_photo', $this->alumni_photo])
             ->andFilterWhere(['like', 'alumni_father_name', $this->alumni_father_name])
             ->andFilterWhere(['like', 'alumni_father_address', $this->alumni_father_address])
             ->andFilterWhere(['like', 'alumni_father_occupation', $this->alumni_father_occupation])
+            ->andFilterWhere(['like', 'alumni_father_contact_num', $this->alumni_father_contact_num])
             ->andFilterWhere(['like', 'alumni_mother_name', $this->alumni_mother_name])
             ->andFilterWhere(['like', 'alumni_mother_address', $this->alumni_mother_address])
             ->andFilterWhere(['like', 'alumni_mother_occupation', $this->alumni_mother_occupation])
+            ->andFilterWhere(['like', 'alumni_mother_contact_num', $this->alumni_mother_contact_num])
             ->andFilterWhere(['like', 'alumni_spouse', $this->alumni_spouse]);
 
         return $dataProvider;

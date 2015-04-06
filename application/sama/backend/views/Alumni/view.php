@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'alumni_landline',
             'alumni_email:email',
             'alumni_school_graduated_from',
-            'alumni_school_year_graduated',
+            'alumni_school_year_grad',
             'alumni_school_address',
             'alumni_school_contact_num',
             'alumni_photo',

@@ -43,7 +43,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'alumni_school_graduated_from') ?>
 
-    <?php // echo $form->field($model, 'alumni_school_year_graduated') ?>
+    <?php // echo $form->field($model, 'alumni_school_year_grad') ?>
 
     <?php // echo $form->field($model, 'alumni_school_address') ?>
 
