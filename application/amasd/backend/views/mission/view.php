@@ -29,12 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'mission_num_of_volunteer',
             'mission_location',
-            'mission_contact_person_lname',
-            'mission_contact_person_fname',
-            'mission_contact_num',
-            'mission_email_address:email',
+            'mission_length',
+            'mission_start_date',
+            'mission_end_date',
+            'mission_status',
+            'alumni_id',
         ],
     ]) ?>
 

@@ -26,12 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'mission_num_of_volunteer',
+			['attribute' => 'alumni_id',
+			'label'=> 'Alumni',
+			'value'=> 'alumni.alumni_lname',
+			'filter' => yii\helpers\ArrayHelper::map(backend\models\alumni::find()->all(),'id','alumni_lname')],
             'mission_location',
-            'mission_contact_person_lname',
-            'mission_contact_person_fname',
-            'mission_contact_num',
-            'mission_email_address:email',
+            'mission_length',
+            'mission_start_date',
+            'mission_end_date',
+            'mission_status',
+            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
