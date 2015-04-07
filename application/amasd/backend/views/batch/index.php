@@ -26,8 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'batch_code',
-            'batch_created_date',
+			['attribute' => 'alumni_id',
+			'label'=> 'Alumni',
+			'value'=> 'alumni.alumni_lname',
+			'filter' => yii\helpers\ArrayHelper::map(backend\models\alumni::find()->all(),'id','alumni_lname')],
+			'batch_code',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

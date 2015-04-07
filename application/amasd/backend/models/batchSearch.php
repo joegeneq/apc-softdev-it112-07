@@ -18,7 +18,7 @@ class batchSearch extends batch
     public function rules()
     {
         return [
-            [['id', 'batch_code'], 'integer'],
+            [['id', 'batch_code', 'alumni_id'], 'integer'],
             [['batch_created_date'], 'safe'],
         ];
     }
@@ -59,6 +59,7 @@ class batchSearch extends batch
             'id' => $this->id,
             'batch_code' => $this->batch_code,
             'batch_created_date' => $this->batch_created_date,
+            'alumni_id' => $this->alumni_id,
         ]);
 
         return $dataProvider;

@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'batch_code',
             'batch_created_date',
+            'alumni_id',
         ],
     ]) ?>
 
