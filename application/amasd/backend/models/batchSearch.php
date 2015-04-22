@@ -18,8 +18,8 @@ class batchSearch extends batch
     public function rules()
     {
         return [
-            [['id', 'batch_code', 'alumni_id'], 'integer'],
-            [['batch_created_date'], 'safe'],
+            [['id', 'alumni_id'], 'integer'],
+            [['batch_code', 'batch_created_date'], 'safe'],
         ];
     }
 
@@ -57,10 +57,11 @@ class batchSearch extends batch
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'batch_code' => $this->batch_code,
             'batch_created_date' => $this->batch_created_date,
             'alumni_id' => $this->alumni_id,
         ]);
+
+        $query->andFilterWhere(['like', 'batch_code', $this->batch_code]);
 
         return $dataProvider;
     }

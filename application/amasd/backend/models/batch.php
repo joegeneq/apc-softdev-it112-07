@@ -8,13 +8,14 @@ use Yii;
  * This is the model class for table "batch".
  *
  * @property integer $id
- * @property integer $batch_code
+ * @property string $batch_code
  * @property string $batch_created_date
  * @property integer $alumni_id
  *
  * @property Alumni $alumni
+ * @property Mission[] $missions
  */
-class batch extends \yii\db\ActiveRecord
+class Batch extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -31,8 +32,9 @@ class batch extends \yii\db\ActiveRecord
     {
         return [
             [['batch_code', 'batch_created_date', 'alumni_id'], 'required'],
-            [['batch_code', 'alumni_id'], 'integer'],
-            [['batch_created_date'], 'safe']
+            [['batch_created_date'], 'safe'],
+            [['alumni_id'], 'integer'],
+            [['batch_code'], 'string', 'max' => 11]
         ];
     }
 
@@ -55,5 +57,13 @@ class batch extends \yii\db\ActiveRecord
     public function getAlumni()
     {
         return $this->hasOne(Alumni::className(), ['id' => 'alumni_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMissions()
+    {
+        return $this->hasMany(Mission::className(), ['batch_id' => 'id']);
     }
 }
