@@ -50,8 +50,9 @@ use yii\debug\Toolbar;
             'items' => array(
               array('label' => 'Home', 'url' => array('/site/index')),
               array('label' => 'About', 'url' => array('/site/about')),
-              array('label' => 'Contact', 'url' => array('/site/contact')),
-              array('label' => 'Login', 'url' => ('http://localhost/sama/backend/web/')),
+              //array('label' => 'Contact', 'url' => array('/site/contact')),
+              array('label' => 'Gallery', 'url' => array('/site/contact')),
+              array('label' => 'Login', 'url' => ('http://localhost/amasd/backend/web/')),
               //Yii::$app->user->isGuest ?
                 //array('label' => 'Login', 'url' => array('/site/login')) :
                 //array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
