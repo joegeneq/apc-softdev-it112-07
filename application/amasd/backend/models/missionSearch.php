@@ -18,8 +18,8 @@ class missionSearch extends mission
     public function rules()
     {
         return [
-            [['id', 'alumni_id'], 'integer'],
-            [['mission_location', 'mission_length', 'mission_start_date', 'mission_end_date', 'mission_status'], 'safe'],
+            [['id', 'area_id', 'batch_id'], 'integer'],
+            [['mission_length', 'mission_start_date', 'mission_end_date', 'mission_status'], 'safe'],
         ];
     }
 
@@ -57,13 +57,13 @@ class missionSearch extends mission
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'area_id' => $this->area_id,
             'mission_start_date' => $this->mission_start_date,
             'mission_end_date' => $this->mission_end_date,
-            'alumni_id' => $this->alumni_id,
+            'batch_id' => $this->batch_id,
         ]);
 
-        $query->andFilterWhere(['like', 'mission_location', $this->mission_location])
-            ->andFilterWhere(['like', 'mission_length', $this->mission_length])
+        $query->andFilterWhere(['like', 'mission_length', $this->mission_length])
             ->andFilterWhere(['like', 'mission_status', $this->mission_status]);
 
         return $dataProvider;

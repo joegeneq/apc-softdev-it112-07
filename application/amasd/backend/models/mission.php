@@ -8,16 +8,17 @@ use Yii;
  * This is the model class for table "mission".
  *
  * @property integer $id
- * @property string $mission_location
+ * @property integer $area_id
  * @property string $mission_length
  * @property string $mission_start_date
  * @property string $mission_end_date
  * @property string $mission_status
- * @property integer $alumni_id
+ * @property integer $batch_id
  *
- * @property Alumni $alumni
+ * @property Batch $batch
+ * @property Area $area
  */
-class mission extends \yii\db\ActiveRecord
+class Mission extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -33,10 +34,9 @@ class mission extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['mission_location', 'mission_length', 'mission_start_date', 'mission_end_date', 'mission_status', 'alumni_id'], 'required'],
+            [['area_id', 'mission_length', 'mission_start_date', 'mission_end_date', 'mission_status', 'batch_id'], 'required'],
+            [['area_id', 'batch_id'], 'integer'],
             [['mission_start_date', 'mission_end_date'], 'safe'],
-            [['alumni_id'], 'integer'],
-            [['mission_location'], 'string', 'max' => 255],
             [['mission_length', 'mission_status'], 'string', 'max' => 20]
         ];
     }
@@ -48,20 +48,28 @@ class mission extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'mission_location' => 'Location',
-            'mission_length' => 'Period',
-            'mission_start_date' => 'Start Date',
-            'mission_end_date' => 'End Date',
-            'mission_status' => 'Status',
-            'alumni_id' => 'Alumni',
+            'area_id' => 'Area ID',
+            'mission_length' => 'Mission Length',
+            'mission_start_date' => 'Mission Start Date',
+            'mission_end_date' => 'Mission End Date',
+            'mission_status' => 'Mission Status',
+            'batch_id' => 'Batch ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAlumni()
+    public function getBatch()
     {
-        return $this->hasOne(Alumni::className(), ['id' => 'alumni_id']);
+        return $this->hasOne(Batch::className(), ['id' => 'batch_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArea()
+    {
+        return $this->hasOne(Area::className(), ['id' => 'area_id']);
     }
 }

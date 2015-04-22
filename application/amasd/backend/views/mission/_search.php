@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'mission_location') ?>
+    <?= $form->field($model, 'area_id') ?>
 
     <?= $form->field($model, 'mission_length') ?>
 
@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'mission_status') ?>
 
-    <?php // echo $form->field($model, 'alumni_id') ?>
+    <?php // echo $form->field($model, 'batch_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
