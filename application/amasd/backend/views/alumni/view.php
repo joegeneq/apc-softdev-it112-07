@@ -45,7 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'alumni_school_year_grad',
             'alumni_school_address',
             'alumni_school_contact_num',
-            'alumni_photo',
             'alumni_father_name',
             'alumni_father_address',
             'alumni_father_occupation',

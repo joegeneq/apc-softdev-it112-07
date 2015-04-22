@@ -49,8 +49,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'alumni_school_contact_num') ?>
 
-    <?php // echo $form->field($model, 'alumni_photo') ?>
-
     <?php // echo $form->field($model, 'alumni_father_name') ?>
 
     <?php // echo $form->field($model, 'alumni_father_address') ?>

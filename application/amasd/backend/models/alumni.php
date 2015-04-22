@@ -24,7 +24,6 @@ use Yii;
  * @property string $alumni_school_year_grad
  * @property string $alumni_school_address
  * @property integer $alumni_school_contact_num
- * @property resource $alumni_photo
  * @property string $alumni_father_name
  * @property string $alumni_father_address
  * @property string $alumni_father_occupation
@@ -36,8 +35,11 @@ use Yii;
  * @property integer $alumni_num_siblings
  * @property string $alumni_spouse
  * @property integer $alumni_num_children
+ *
+ * @property Batch[] $batches
+ * @property Mission[] $missions
  */
-class alumni extends \yii\db\ActiveRecord
+class Alumni extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -53,10 +55,9 @@ class alumni extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_gender', 'alumni_birthdate', 'alumni_nationality', 'alumni_occupation', 'alumni_marital_stat', 'alumni_address', 'alumni_mobile', 'alumni_landline', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_grad', 'alumni_school_address', 'alumni_school_contact_num', 'alumni_photo', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_father_contact_num', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_mother_contact_num', 'alumni_num_siblings', 'alumni_spouse', 'alumni_num_children'], 'required'],
+            [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_gender', 'alumni_birthdate', 'alumni_nationality', 'alumni_occupation', 'alumni_marital_stat', 'alumni_address', 'alumni_mobile', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_year_grad', 'alumni_school_address', 'alumni_school_contact_num', 'alumni_father_name', 'alumni_father_address', 'alumni_mother_name', 'alumni_mother_address'], 'required'],
             [['alumni_birthdate', 'alumni_school_year_grad'], 'safe'],
             [['alumni_school_contact_num', 'alumni_num_siblings', 'alumni_num_children'], 'integer'],
-            [['alumni_photo'], 'string'],
             [['alumni_lname', 'alumni_fname', 'alumni_mname', 'alumni_nationality', 'alumni_occupation', 'alumni_address', 'alumni_email', 'alumni_school_graduated_from', 'alumni_school_address', 'alumni_father_name', 'alumni_father_address', 'alumni_father_occupation', 'alumni_mother_name', 'alumni_mother_address', 'alumni_mother_occupation', 'alumni_spouse'], 'string', 'max' => 45],
             [['alumni_gender'], 'string', 'max' => 6],
             [['alumni_marital_stat'], 'string', 'max' => 10],
@@ -88,7 +89,6 @@ class alumni extends \yii\db\ActiveRecord
             'alumni_school_year_grad' => 'Alumni School Year Grad',
             'alumni_school_address' => 'Alumni School Address',
             'alumni_school_contact_num' => 'Alumni School Contact Num',
-            'alumni_photo' => 'Alumni Photo',
             'alumni_father_name' => 'Alumni Father Name',
             'alumni_father_address' => 'Alumni Father Address',
             'alumni_father_occupation' => 'Alumni Father Occupation',
@@ -101,5 +101,21 @@ class alumni extends \yii\db\ActiveRecord
             'alumni_spouse' => 'Alumni Spouse',
             'alumni_num_children' => 'Alumni Num Children',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBatches()
+    {
+        return $this->hasMany(Batch::className(), ['alumni_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMissions()
+    {
+        return $this->hasMany(Mission::className(), ['alumni_id' => 'id']);
     }
 }

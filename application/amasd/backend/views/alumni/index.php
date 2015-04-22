@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'alumni_lname',
             'alumni_fname',
             'alumni_mname',
@@ -37,12 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'alumni_address',
             // 'alumni_mobile',
             // 'alumni_landline',
-            // 'alumni_email:email',
+             'alumni_email:email',
             // 'alumni_school_graduated_from',
             // 'alumni_school_year_grad',
             // 'alumni_school_address',
             // 'alumni_school_contact_num',
-            // 'alumni_photo',
             // 'alumni_father_name',
             // 'alumni_father_address',
             // 'alumni_father_occupation',
