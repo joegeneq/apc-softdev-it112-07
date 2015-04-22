@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp Alumni</h3>',
             'type'=>GridView::TYPE_PRIMARY,
             'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> Add New Alumna', ['create'], ['class' => 'btn btn-success']),
-            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset Grid', ['index'], ['class' => 'btn btn-info']),
+            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset', ['index'], ['class' => 'btn btn-info']),
         ],
     ]); 
     ?>

@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-slider
- * @version 1.3.0
+ * @version 1.4.0
  */
 
 namespace kartik\slider;
@@ -31,6 +31,11 @@ class Slider extends \kartik\base\InputWidget
     const TYPE_WARNING = '#f0ad4e';
 
     /**
+     * @inherit doc
+     */
+    protected $_pluginName = 'slider';
+
+    /**
      * @var string background color for the slider handle
      */
     public $handleColor;
@@ -52,7 +57,7 @@ class Slider extends \kartik\base\InputWidget
     {
         parent::init();
 
-        if (!empty($this->value)) {
+        if (!empty($this->value) || $this->value === 0) {
             if (is_array($this->value)) {
                 throw new InvalidConfigException("Value cannot be passed as an array. If you wish to setup a range slider, pass the two values together as strings separated with a ',' sign.");
             }
@@ -108,7 +113,7 @@ class Slider extends \kartik\base\InputWidget
         // register plugin
         $id = "$('#" . $this->options['id'] . "')";
         $this->pluginOptions['id'] = $this->options['id'] . '-slider';
-        $this->registerPlugin('slider');
+        $this->registerPlugin($this->_pluginName);
 
         // register CSS styles
         $cssStyle = null;

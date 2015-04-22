@@ -1,3 +1,11 @@
+version 1.4.0
+=============
+**Date:** 25-Nov-2014
+
+- (enh #6): Allow 0 to be a valid value
+- (enh #7): Enhance widget to use updated plugin registration from Krajee base
+- (enh #8): Upgrade plugin to latest release as of 25-Nov-2014.
+
 version 1.3.0
 =============
 **Date:** 10-Nov-2014

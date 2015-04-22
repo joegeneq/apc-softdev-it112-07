@@ -1,6 +1,12 @@
 yii2-slider
 =================
 
+[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-slider/v/stable.svg)](https://packagist.org/packages/kartik-v/yii2-slider)
+[![License](https://poser.pugx.org/kartik-v/yii2-slider/license.svg)](https://packagist.org/packages/kartik-v/yii2-slider)
+[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-slider/downloads.svg)](https://packagist.org/packages/kartik-v/yii2-slider)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-slider/d/monthly.png)](https://packagist.org/packages/kartik-v/yii2-slider)
+[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-slider/d/daily.png)](https://packagist.org/packages/kartik-v/yii2-slider)
+
 An advanced slider input for Yii Framework 2 based on [seiyria/bootstrap-slider plugin](https://github.com/seiyria/bootstrap-slider), which is a fork
 of the bootstrap-slider by Stefan Petre from eyecon.ru. The slider input offers these advanced features
 
@@ -23,7 +29,7 @@ Additional enhancements added for this widget (by Krajee):
 You can see detailed [documentation](http://demos.krajee.com/slider) on usage of the extension.
 
 ## Latest Release
->NOTE: The latest version of the module is v1.3.0 released on 25-Oct-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-slider/blob/master/CHANGE.md) for details.
+>NOTE: The latest version of the module is v1.4.0 released on 25-Oct-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-slider/blob/master/CHANGE.md) for details.
 
 ## Installation
 
