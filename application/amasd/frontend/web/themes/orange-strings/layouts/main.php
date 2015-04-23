@@ -85,7 +85,7 @@ use yii\debug\Toolbar;
 </div>
 <div id="footer-wrap">
   <div id="page">
-    <div id="footer">&copy; SOFTDEV <?= date('Y') ?> | ABISADO | CABILDO | LACUATA
+    <div id="footer">&copy; SOFTDEV <?= date('Y') ?> | APC GROUP 07
 </div>
   </div>
 </div>
