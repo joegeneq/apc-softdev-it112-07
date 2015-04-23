@@ -52,7 +52,7 @@ use yii\debug\Toolbar;
               array('label' => 'About', 'url' => array('/site/about')),
               //array('label' => 'Contact', 'url' => array('/site/contact')),
               array('label' => 'Gallery', 'url' => array('/site/contact')),
-              array('label' => 'Login', 'url' => ('http://localhost/amasd/backend/web/')),
+              array('label' => 'Login', 'url' => ('http://gnuhealth.ioss.com.ph/softdev2015/it112/07%20ama-ams_backend/')),
               //Yii::$app->user->isGuest ?
                 //array('label' => 'Login', 'url' => array('/site/login')) :
                 //array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
