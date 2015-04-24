@@ -17,13 +17,6 @@ return [
             ]
         ],
     'components' => [
-		'view'=> [
-		'theme'=> [
-		'pathMap'=> [ 
-			'@app/views'=> '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app'
-        ],
-        ],
-    ],
 		'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

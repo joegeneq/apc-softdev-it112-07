@@ -25,18 +25,24 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'AMA Foundation',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             $menuItems = [
-                ['label' => 'Home', 'url' => ['http://localhost:81/advanced/frontend/web/index.php']],
+                //['label' => 'Home', 'url' => ['http://localhost:81/advanced/frontend/web/index.php']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
+				$menuItems[] = ['label' => 'Users', 'url' => ['/user']];
+                $menuItems[] = ['label' => 'Alumni', 'url' => ['/alumni']];
+                $menuItems[] = ['label' => 'Batches', 'url' => ['/batch']];
+                $menuItems[] = ['label' => 'Mission Area', 'url' => ['/area']];
+                $menuItems[] = ['label' => 'Mission Assignment', 'url' => ['/mission']];
+				//$menuItems[] = ['label' => 'Batch', 'url' => ['/batch']];
                 $menuItems[] = [
                     'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
@@ -58,12 +64,12 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <footer class="footer">
+    <!--<footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; SOFTDEV 07 APC AMA <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
-    </footer>
+    </footer>-->
 
     <?php $this->endBody() ?>
 </body>
