@@ -37,7 +37,6 @@ use Yii;
  * @property integer $alumni_num_children
  *
  * @property Batch[] $batches
- * @property Mission[] $missions
  */
 class Alumni extends \yii\db\ActiveRecord
 {
@@ -109,13 +108,5 @@ class Alumni extends \yii\db\ActiveRecord
     public function getBatches()
     {
         return $this->hasMany(Batch::className(), ['alumni_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getMissions()
-    {
-        return $this->hasMany(Mission::className(), ['alumni_id' => 'id']);
     }
 }

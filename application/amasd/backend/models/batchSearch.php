@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\batch;
+use backend\models\Batch;
 
 /**
- * batchSearch represents the model behind the search form about `backend\models\batch`.
+ * BatchSearch represents the model behind the search form about `backend\models\Batch`.
  */
-class batchSearch extends batch
+class BatchSearch extends Batch
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class batchSearch extends batch
      */
     public function search($params)
     {
-        $query = batch::find();
+        $query = Batch::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

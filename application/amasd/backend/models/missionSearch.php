@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\mission;
+use backend\models\Mission;
 
 /**
- * missionSearch represents the model behind the search form about `backend\models\mission`.
+ * MissionSearch represents the model behind the search form about `backend\models\Mission`.
  */
-class missionSearch extends mission
+class MissionSearch extends Mission
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class missionSearch extends mission
      */
     public function search($params)
     {
-        $query = mission::find();
+        $query = Mission::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

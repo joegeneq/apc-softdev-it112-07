@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\alumni;
+use backend\models\Alumni;
 
 /**
- * alumniSearch represents the model behind the search form about `backend\models\alumni`.
+ * AlumniSearch represents the model behind the search form about `backend\models\Alumni`.
  */
-class alumniSearch extends alumni
+class AlumniSearch extends Alumni
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class alumniSearch extends alumni
      */
     public function search($params)
     {
-        $query = alumni::find();
+        $query = Alumni::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

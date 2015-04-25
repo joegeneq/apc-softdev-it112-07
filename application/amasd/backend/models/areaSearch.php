@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\area;
+use backend\models\Area;
 
 /**
- * areaSearch represents the model behind the search form about `backend\models\area`.
+ * AreaSearch represents the model behind the search form about `backend\models\Area`.
  */
-class areaSearch extends area
+class AreaSearch extends Area
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class areaSearch extends area
      */
     public function search($params)
     {
-        $query = area::find();
+        $query = Area::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
