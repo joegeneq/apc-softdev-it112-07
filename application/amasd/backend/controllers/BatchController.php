@@ -3,14 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\batch;
-use backend\models\batchSearch;
+use backend\models\Batch;
+use backend\models\BatchSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * BatchController implements the CRUD actions for batch model.
+ * BatchController implements the CRUD actions for Batch model.
  */
 class BatchController extends Controller
 {
@@ -23,16 +23,28 @@ class BatchController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+			'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+                    ],
         ];
     }
 
     /**
-     * Lists all batch models.
+     * Lists all Batch models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new batchSearch();
+        $searchModel = new BatchSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +54,7 @@ class BatchController extends Controller
     }
 
     /**
-     * Displays a single batch model.
+     * Displays a single Batch model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +66,13 @@ class BatchController extends Controller
     }
 
     /**
-     * Creates a new batch model.
+     * Creates a new Batch model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new batch();
+        $model = new Batch();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +84,7 @@ class BatchController extends Controller
     }
 
     /**
-     * Updates an existing batch model.
+     * Updates an existing Batch model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +103,7 @@ class BatchController extends Controller
     }
 
     /**
-     * Deletes an existing batch model.
+     * Deletes an existing Batch model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +116,15 @@ class BatchController extends Controller
     }
 
     /**
-     * Finds the batch model based on its primary key value.
+     * Finds the Batch model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return batch the loaded model
+     * @return Batch the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = batch::findOne($id)) !== null) {
+        if (($model = Batch::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

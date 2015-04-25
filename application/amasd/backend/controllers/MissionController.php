@@ -3,14 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\mission;
-use backend\models\missionSearch;
+use backend\models\Mission;
+use backend\models\MissionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MissionController implements the CRUD actions for mission model.
+ * MissionController implements the CRUD actions for Mission model.
  */
 class MissionController extends Controller
 {
@@ -23,16 +23,28 @@ class MissionController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+			'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+                    ],
         ];
     }
 
     /**
-     * Lists all mission models.
+     * Lists all Mission models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new missionSearch();
+        $searchModel = new MissionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +54,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Displays a single mission model.
+     * Displays a single Mission model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +66,13 @@ class MissionController extends Controller
     }
 
     /**
-     * Creates a new mission model.
+     * Creates a new Mission model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new mission();
+        $model = new Mission();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +84,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Updates an existing mission model.
+     * Updates an existing Mission model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +103,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Deletes an existing mission model.
+     * Deletes an existing Mission model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +116,15 @@ class MissionController extends Controller
     }
 
     /**
-     * Finds the mission model based on its primary key value.
+     * Finds the Mission model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return mission the loaded model
+     * @return Mission the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = mission::findOne($id)) !== null) {
+        if (($model = Mission::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
