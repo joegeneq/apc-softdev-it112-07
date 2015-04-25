@@ -37,11 +37,11 @@ AppAsset::register($this);
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
-				$menuItems[] = ['label' => 'Users', 'url' => ['/User']];
-                $menuItems[] = ['label' => 'Alumni', 'url' => ['/Alumni']];
-                $menuItems[] = ['label' => 'Batches', 'url' => ['/Batch']];
-                $menuItems[] = ['label' => 'Mission Area', 'url' => ['/Area']];
-                $menuItems[] = ['label' => 'Mission Assignment', 'url' => ['/Mission']];
+				$menuItems[] = ['label' => 'Users', 'url' => ['/user']];
+                $menuItems[] = ['label' => 'Alumni', 'url' => ['/alumni']];
+                $menuItems[] = ['label' => 'Batches', 'url' => ['/batch']];
+                $menuItems[] = ['label' => 'Mission Area', 'url' => ['/area']];
+                $menuItems[] = ['label' => 'Mission Assignment', 'url' => ['/mission']];
 				//$menuItems[] = ['label' => 'Batch', 'url' => ['/batch']];
                 $menuItems[] = [
                     'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
