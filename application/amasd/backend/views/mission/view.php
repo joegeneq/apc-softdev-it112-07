@@ -21,8 +21,8 @@ use backend\models\batch;
 use backend\models\alumni;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\mission */
-/* @var $model backend\models\batch */
+/* @var $model backend\models\Mission */
+/* @var $model backend\models\Batch */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Missions', 'url' => ['index']];

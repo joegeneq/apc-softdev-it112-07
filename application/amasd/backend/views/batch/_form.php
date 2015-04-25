@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 use dosamigos\datepicker\DatePicker;
  
 /* @var $this yii\web\View */
-/* @var $model backend\models\batch */
+/* @var $model backend\models\Batch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\mission */
+/* @var $model backend\models\Mission */
 
 $this->title = 'Create Mission';
 $this->params['breadcrumbs'][] = ['label' => 'Missions', 'url' => ['index']];

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\areaSearch */
+/* @var $searchModel backend\models\AreaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Areas';

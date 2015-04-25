@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\batch */
+/* @var $model backend\models\Batch */
 
 $this->title = 'Create Batch';
 $this->params['breadcrumbs'][] = ['label' => 'Batches', 'url' => ['index']];

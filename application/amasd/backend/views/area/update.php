@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\area */
+/* @var $model backend\models\Area */
 
 $this->title = 'Update Area: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Areas', 'url' => ['index']];
