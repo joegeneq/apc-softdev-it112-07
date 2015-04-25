@@ -27,7 +27,7 @@ $this->title = 'Home';
   
 			<br>
             <div class="col-lg-4">
-				<img src='http://s11.postimg.org/h6oe4x6ab/image1.jpg' alt='Buns' title='Buns' /> </a> <br>
+				<img src='http://s17.postimg.org/62d2w0sen/image1.jpg' alt='Buns' title='Buns' /> </a> <br>
                 <h2>Who we are?</h2>
 
                 <p>The Associate Missionaries of the Assumption is a community of young volunteers who are committed to transforming society through joyful service deeply rooted in faith and prayer.</p>
@@ -35,7 +35,7 @@ $this->title = 'Home';
                 <!--<p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>-->
             </div>
             <div class="col-lg-4">
-                <img src='http://s4.postimg.org/6w9ql5svh/carousel4.jpg' alt='Lemon pie' title='Lemon pie' /> <br></a> 
+                <img src='http://s21.postimg.org/vqxkitzdz/carousel4.jpg' alt='Lemon pie' title='Lemon pie' /> <br></a> 
 				<h2>What is AMA?</h2>
 
                 <p>In 1954, the Assumption Sisters founded the Associate Missionaries of the Assumption (AMA) as a way of answering the many appeals of the world. Today, the work continues. While at their volunteer sites, AMA's find new insight into God's gifts through service to others. It is through their service that they come to understand more fully the rule of life of The Religious of the Assumption: "Love never remains idle: it makes us creative and impels us to heed all the appeals of the world and to find new ways of answering them."</p>
@@ -43,7 +43,7 @@ $this->title = 'Home';
                 <!--<p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>-->
             </div>
             <div class="col-lg-4">
-				<img src='http://s18.postimg.org/fycju2omh/image3.jpg' alt='Croissant' title='Croissant' /> <br></a> 
+				<img src='http://s17.postimg.org/hdkby4onj/image3.jpg' alt='Croissant' title='Croissant' /> <br></a> 
                 <h2>What we do?</h2>
 
                 <p>The alumni community continues to be a support group, has provided human & material resources to the program. They oversee implementation & sustainability of the organization.</p>
